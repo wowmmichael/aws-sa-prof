@@ -95,13 +95,6 @@
     - Require ENI to be attached to a running instance
 
 
-  
-  
-
-
-
-
-
 ## AWS VPC Security
 
 - In a VPC, both Security Groups and Network ACLs together help to build a layered network defence.
@@ -146,7 +139,57 @@
 - __Stateless__
 - A rule specifies __Type__ (e.g. SSH, All IPv4 traffic, HTTPS), __Protocol__ (e.g. TCP), Port range, __Source__ CIDR (for inbound rule), and __Destination__ CIDR (for outbound rule)
 - Ephermeral ports 1024-65535 is often opened to allow outbound traffic to different clients
-- If MTU between subnets is different, must add network ACL rules to allow type-Custom ICMP Rule with and port range-Destination Unreachable, fragmentation required, and DF flag set  
+- If MTU between subnets is different, must add network ACL rules to allow type-Custom ICMP Rule with and port range-Destination Unreachable, fragmentation required, and DF flag set 
+
+## [Connectivity Options](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/introduction.html)
+
+
+### Network-to-VPC connectivity options
+
+#### AWS managed VPN
+
+- AWS-managed VPN endpoint to connect to customer's gateway using IPSec over the internet
+![image](https://user-images.githubusercontent.com/60513695/98445916-637ceb80-2155-11eb-818a-427e47bc2cb6.png)
+- support both static and dynamic routing options
+- dynamic routing uses BGP peering to exchange routing information
+  - can specify routing priorities, policies, and weights in BGP advertisements and influence the network path between your networks and AWS
+  - require the user gateway device to be capable of terminating both IPSec and BGP connections
+- limitations:
+  - latency and availability depend on internet conditions
+  - customer managed endpoint is responsible for implementing redundancy and failover
+  - customer device must support single-hop BGP
+  
+#### AWS Transit Gateway + VPN
+
+- use AWS Transit Gateway to connect multiple VPCs in the same region to the customer gateway using IPSec over the internet
+![image](https://user-images.githubusercontent.com/60513695/98446082-3f6dda00-2156-11eb-80fe-089515430b7b.png)
+
+#### AWS Direct Connect
+
+- use Direct Connect, which is dedicated network connection over private lines, to avoid public internet
+- require additional telecom and hosting provider relationships or new network circuits to be provisioned
+![image](https://user-images.githubusercontent.com/60513695/98446188-c28f3000-2156-11eb-9293-0e829658b852.png)
+- uses 802.1q VLANS to connect to AWS VPC using private IP addresses
+- 1 Gbps or 10 Gbps dedicated network connections
+- different gateways on the AWS's side
+  - Virtual Private Gateway
+  - Direct Connect Gateway is a __globally__ available resource to enable connections to multiple VPCs accross regions and accounts
+  - AWS Transit Gateway is a network transit hub to interconnect VPCs in the same region
+- VPN over Direct Connect for end-to-end security
+
+#### AWS VPN CloudHub
+
+- operates simple hub-and-spoke model, commonly used to to setup connectivity among remote offices
+- uses an AWS VPC virtual private gateway with multiple customer gateways, each using unique BGP autonomous system number (ASN). 
+- sites must not have overlapping IP ranges
+![image](https://user-images.githubusercontent.com/60513695/98446848-99bd6980-215b-11eb-9851-9428d8afa837.png)
+
+#### Software Site-to-Site VPN
+
+- allows for the flexibility to fully managed both sides of VPC connectivity, for compliance reasons or leveraging gateway devices not yet supported by AWS's VPN solution
+
+
+
 
 
 ## References
