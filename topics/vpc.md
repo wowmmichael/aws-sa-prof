@@ -186,9 +186,42 @@
 
 #### Software Site-to-Site VPN
 
-- allows for the flexibility to fully managed both sides of VPC connectivity, for compliance reasons or leveraging gateway devices not yet supported by AWS's VPN solution
+- allows for the flexibility to fully manage both sides of VPC connectivity, for compliance reasons or leveraging gateway devices not yet supported by AWS's VPN solution
+
+### VPC-to-VPC connectivity options
+
+#### VPC peering
+
+- connect __two__ VPCs that enables routing using each VPC's private IP addresses as if they are in the same network
+- supports __cross-account__ and __inter-region__ peering
+- traffic always stays on the global AWS backbone and never traverse the public internet (sounds a bit like VPC endpoints)
+- AWS leverages the existing infrastructure of a VPC to create VPC peering connection, so they do not introduce additional SPOF or bandwidth bottleneck
+
+#### AWS Transit Gateway
+
+- is a highly available and scalable service with a hub-and-spoke architecture; provides simpler VPC-to-VPC communication management than VPC peering
+- each spoke VPC only needs to connect to the Transite Gateway to gain access to other connected VPCs
+- Transit Gateway across different regions can peer with each other to enable cross-region connections
+- traffic always stays on the global AWS backbone
+![image](https://user-images.githubusercontent.com/60513695/98447167-99be6900-215d-11eb-99b6-15537ce79e16.png)
+
+#### Software Site-to-Stie VPN
+
+- very similar to the one in 'Network-to-VPC connectivity options'
+- uses an internet gateway attached to each VPC to facilitate communication between the software VPN appliances
+
+#### AWS Managed VPN
+
+- very similar to the one in 'Network-to-VPC connectivity options'
+- suboptimal from a routing perspective since the traffic must traverse to router on customer's network
+- gives more flexibility for controlling routing and potentially reuses VPN connections
+![image](https://user-images.githubusercontent.com/60513695/98447302-abecd700-215e-11eb-9f0c-3dd560c4ab58.png)
 
 
+#### AWS PrivateLink
+
+- see 'PrivateLink Endpoint'
+![image](https://user-images.githubusercontent.com/60513695/98447329-f2423600-215e-11eb-9f0b-3716bf36200b.png)
 
 
 
