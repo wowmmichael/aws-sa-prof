@@ -206,6 +206,16 @@
 - supports __cross-account__ and __inter-region__ peering
 - traffic always stays on the global AWS backbone and never traverse the public internet (sounds a bit like VPC endpoints)
 - AWS leverages the existing infrastructure of a VPC to create VPC peering connection, so they do not introduce additional SPOF or bandwidth bottleneck
+- VPC peering is __not transitive__
+- in a VPC peering connection, the VPC __does not__ have access to any other connection the peer VPC may have, including:
+  - VPN connection or AWS Direct Connect to on premise network
+  - internet connection through an internet gateway
+  - internet connection through a NAT device
+  - VPC endpoint to AWS services, e.g. an endpoint to S3
+- only one peering connection can be established between the same two VPCs
+- tags are only applied in the account or region in which the peering was created
+- instance's public DNS can be resolved to its private IP address across peered VPCs
+
 
 #### AWS Transit Gateway
 
