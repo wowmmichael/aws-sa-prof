@@ -154,6 +154,8 @@
 - dynamic routing uses BGP peering to exchange routing information
   - can specify routing priorities, policies, and weights in BGP advertisements and influence the network path between your networks and AWS
   - require the user gateway device to be capable of terminating both IPSec and BGP connections
+- VGW is not the initiator; CGW must initiate the tunnels
+- use keepalive pings to prevent the tunnel from going down due to idle connection
 - limitations:
   - latency and availability depend on internet conditions
   - customer managed endpoint is responsible for implementing redundancy and failover
