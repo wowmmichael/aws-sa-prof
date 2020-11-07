@@ -1,5 +1,39 @@
 # AWS VPC
 
+## Route Tables
+
+- Route table defines routes, which determine where network traffic from the subnet would be routed
+- Each VPC has an implicit __router__ to route network traffic
+- Each VPC has a Main Route Table, and optionally multiple custom route tables
+- Each subnet must be associated with a __single__ route table at a time, defaults to the main route table
+- Every route table contains a local route which cannot be modified or deleted, e.g.
+  | Destination | Target |
+  |-------------|--------|
+  | `10.0.0/16`   | Local  |
+  | `2001:db8:1234:1a00::/56` | Local |
+- Route priority is decided by matching the most specific route in the route table
+- Rules for IGW, VPG, VPC Peering, VPC Endpoints, NAT Device
+  ![image](https://user-images.githubusercontent.com/60513695/98443014-93bb8e80-2143-11eb-8cbf-985893b8bc5c.png)
+- Route propagation require subnet route table to enable route propagation, then when attaching a virtual private gateway, routes representing Site-to-Site VPN connection automatically appears as propagated routes
+  - Static routes always take priority over the propagated routes
+- Gateway route tables
+  - Route table can be associated with an internet gateway or a virtual private gateway, to use fine-grain control over the path for traffic __entering__ the VPC
+  - Supports routes where the target is `local` or an ENI in the VPS that is attached to middlebox applicances
+    - Destination is entire CIDR block of the VPC, which is equivalent to local
+    - Destination is the CIDR of a subnet
+  - Foridden:
+    - Route table contains routes with targets other than ENI or the default local
+    - Route table contains CIDR blocks outside the range of VPC
+    - Route propagation is enabled for the route table
+    - Require ENI to be attached to a running instance
+
+
+  
+  
+
+
+
+
 
 ## AWS VPC Security
 
