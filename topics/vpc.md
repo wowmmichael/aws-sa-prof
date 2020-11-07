@@ -19,11 +19,34 @@
 - Defaults Security Group:
   - Not allow external inbound traffic but allow inbound traffic from instances within the same security group
   - Allow all outbound traffic
+- Newly created Security Group is the same as the default security group
 - Target is IP / CIDR range / another security group in the VPC / a peer VPC (requires VPC peering connection)
 - Evaluated as a whole with most permissive rule taking precedence
 - __Stateful__ - responses to allowed inbound traffic are allowed to flow outbound regardless of outbound rules, and vice versa
   - Connection Tracking
     - Security groups are stateful as they use connection tracking to track information about traffic to and from the instance
+    - Connection Tracking is maintained only if there is no explicit Outbound rule for an inbound request, and vice versa
+    - However, if there is an explicit outbound rule for an inbound request, the response traffic is allowed on the basis of the outbound rule and not on the tracking information
 - Associated with ENI (network iterfaces), and moves together with ENI if ENI is attached to another instance
+
+### Network Access Control Lists
+
+- NACL is an optional layer of security for the VPC that acts as a firewall for controlling traffic in and out of one or more __subnets__
+- applicable to all instances in the subnet
+- separate inbound / outbound rules, and each rule can either allow or deny traffic
+- Default NACL:
+  - Allows all inbound and outbound traffic
+- Newly created NACL:
+  - Denies all inbound and outbound traffic
+- A subnet can be assigned only 1 NACL, or is associated implicitly with the default NACL if there is no explict assignment
+- NACL can be asscoiated with multiple subnets
+- NACL is a numbered list of rules that are evaluated in order from the lowest numbered rule.
+  - Rules can be conflicting with one another, but the one with lower number wins. e.g. if you have a Rule No. 100 with Allow All and 110 with Deny All, then all the traffic will be allowed
+- __Stateless__
+
+
+## References
+
+- [jayendrapatil](https://jayendrapatil.com/aws-vpc-security-group-vs-nacls/)
 
 
