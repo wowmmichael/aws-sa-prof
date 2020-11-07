@@ -187,6 +187,16 @@
 #### Software Site-to-Site VPN
 
 - allows for the flexibility to fully manage both sides of VPC connectivity, for compliance reasons or leveraging gateway devices not yet supported by AWS's VPN solution
+![image](https://user-images.githubusercontent.com/60513695/98447400-7eecf400-215f-11eb-80b9-7e80b06e1c75.png)
+
+#### AWS Client VPN
+
+- AWS managed high availability and scalability service that enables secure software remote access
+- supports creating a secure TLS connection between remote clients and AWS VPC
+- OpenVPN clients only
+
+![image](https://user-images.githubusercontent.com/60513695/98447452-d5f2c900-215f-11eb-9b34-3990e3814b1f.png)
+
 
 ### VPC-to-VPC connectivity options
 
