@@ -41,6 +41,27 @@
 - allows egress traffic, and prevents the Internet from initiating connection with the instances
 - use a NAT gateway for IPv4 traffic
 
+#### VPC endpoints
+
+- enable private connection between VPC to supported AWS services and VPC endpoint services powered by PrivateLink
+- does not require public IP address; the access can be over the internet, NAT device, a VPN connection, or AWS Direct Connect
+- Traffic between VPC and AWS service does not leave the Amazon network
+- Endpoints are virtual devices, that are horizontally scaled, redundant, and highly available VPC components
+- no availability risks or bandwidth constraints
+- Currently does not support cross-region requests
+- VPC Endpoint Policy is an IAM resource policy attached to an endpoint controlling access from the endpoint to the specified service. Defaut allows full access. Endpoint policy does not override or replace IAM user policies or service-specific policies (such as S3 bucket policy)
+- two types of endpoints:
+  - VPC Gateway Endpoints
+    - A VPC Gateway Endpoint is a gateway that is a target for a specified route in the route table, used for traffic destined to a supported AWS service. Currently supports S3 and DynamoDB
+    ![image](https://user-images.githubusercontent.com/60513695/98444736-498bda80-214e-11eb-9756-02c524783de0.png)
+    - in the VPC, service is accessed via the endpoint
+    - endpoint needs to be associated with the route table, e.g. a rule with destination pl-68a54001 (com.amazonaws.us-west-2.s3) and a target with the endpoint ID (vpce-12345678) 
+    - security groups need to allow outbound traffic from the VPC to the service. Used the __service prefix list ID__ e.g. com.amazonaws.us-east-1.s3  as the destination in the outbound rule
+    - multiple endpoints can be created for a single service, but they cannot be specified in a single route table. commonly used to enforce different access policies from different subnets
+  - VPC Interface Endpoints
+    
+
+
 ## Route Tables
 
 - Route table defines routes, which determine where network traffic from the subnet would be routed
