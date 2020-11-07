@@ -1,6 +1,6 @@
 # AWS VPC
 
-![image](https://user-images.githubusercontent.com/60513695/98443878-43dfc600-2149-11eb-8bdc-de5b4457667d.png)
+![image](https://user-images.githubusercontent.com/60513695/98444451-ba31f780-214c-11eb-9f5e-debda2cdf8b0.png)
 
 ## Components
 
