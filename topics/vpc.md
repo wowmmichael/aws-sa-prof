@@ -20,7 +20,7 @@
   - Not allow external inbound traffic but allow inbound traffic from instances within the same security group
   - Allow all outbound traffic
 - Newly created Security Group is the same as the default security group
-- Target is IP / CIDR range / another security group in the VPC / a peer VPC (requires VPC peering connection)
+- Target is IP / CIDR range / port range / another security group in the VPC / a peer VPC (requires VPC peering connection)
 - Evaluated as a whole with most permissive rule taking precedence
 - __Stateful__ - responses to allowed inbound traffic are allowed to flow outbound regardless of outbound rules, and vice versa
   - Connection Tracking
@@ -43,10 +43,13 @@
 - NACL is a numbered list of rules that are evaluated in order from the lowest numbered rule.
   - Rules can be conflicting with one another, but the one with lower number wins. e.g. if you have a Rule No. 100 with Allow All and 110 with Deny All, then all the traffic will be allowed
 - __Stateless__
+- A rule specifies __Type__ (e.g. SSH, All IPv4 traffic, HTTPS), __Protocol__ (e.g. TCP), Port range, __Source__ CIDR (for inbound rule), and __Destination__ CIDR (for outbound rule)
+- Ephermeral ports 1024-65535 is often opened to allow outbound traffic to different clients
+- If MTU between subnets is different, must add network ACL rules to allow type-Custom ICMP Rule with and port range-Destination Unreachable, fragmentation required, and DF flag set  
 
 
 ## References
 
 - [jayendrapatil](https://jayendrapatil.com/aws-vpc-security-group-vs-nacls/)
-
+- [vpc-sg-nacl comparison](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html#VPC_Security_Comparison)
 
