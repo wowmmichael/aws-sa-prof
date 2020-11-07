@@ -58,7 +58,12 @@
     - endpoint needs to be associated with the route table, e.g. a rule with destination pl-68a54001 (com.amazonaws.us-west-2.s3) and a target with the endpoint ID (vpce-12345678) 
     - security groups need to allow outbound traffic from the VPC to the service. Used the __service prefix list ID__ e.g. com.amazonaws.us-east-1.s3  as the destination in the outbound rule
     - multiple endpoints can be created for a single service, but they cannot be specified in a single route table. commonly used to enforce different access policies from different subnets
-  - VPC Interface Endpoints
+  - [VPC Interface Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html)
+    - enables connectivity to services powered by AWS PrivateLink, including some AWS services (e.g. CloudTrail, CloudWatch), services hosted by other customers and partners in their VPCs, and supported AWS Marketplace Partner services
+    - support private DNS by setting `enableDnsHostnames` to true
+    ![image](https://user-images.githubusercontent.com/60513695/98445526-29124f00-2153-11eb-98f1-1b71a4191183.png)
+    - interface endpoint can be used to connect to on-premises data center, through AWS Direct Connect or AWS Site-to-Site VPN
+    
     
 
 
