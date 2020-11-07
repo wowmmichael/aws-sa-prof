@@ -1,5 +1,46 @@
 # AWS VPC
 
+![image](https://user-images.githubusercontent.com/60513695/98443878-43dfc600-2149-11eb-8bdc-de5b4457667d.png)
+
+## Components
+
+#### Internet Gateways - IGW
+- horizontally scaled, redundant, and highly available VPC component that allows instances in VPC to communicate with the Internet
+- no availability risks or bandwidth constraints
+- purposes:
+  - provide a target in the VPC route table to represent Internet-routable traffic
+  - perform NAT for instances that don't have public IP addresses
+- steps to enable Internet access to an instance
+  - attaching IGW to VPC; the corresponding subnet is called public subnet
+  - subnet should have route tables with the route pointing to IGW
+  - instances should have public IP or Elastic IP assigned
+  - security groups and NACL applicable to the instance should allow the relevent traffic
+  
+#### NAT
+
+- NAT instance is launched in the public subnet, and needs to be assigned an Elastic IP or a public IP
+- NAT instance should __disable Source/Destination check flag__
+- perform both address translation and port translation
+- no redundancy and bandwidth may be insufficient
+  - more sophiscated setup to gain redundancy via auto-scaling group
+- useful scenarios:
+  - instances in private subnets need internet connection for software updates
+- or use NAT Gateway, which is a managed service by AWS
+  - higher bandwidth, can support bursts of up to 10 Gbps
+  - for higher requirement, the workload can be distributed into multiple subnets and creating a NAT gateway in each subnet
+  - NAT Gateway is associated with one Elastic IP and cannot be disassociated
+  - created in a specific AZ with redundancy inside AZ
+  - supports TCP, UDP, and ICMP
+  - cannot be associated with a security group. NACL can be used to control the traffic
+  
+
+#### Egress-only IGW
+
+- works like a NAT gateway, but for IPv6 traffic __only__
+- higly available like IGW
+- allows egress traffic, and prevents the Internet from initiating connection with the instances
+- use a NAT gateway for IPv4 traffic
+
 ## Route Tables
 
 - Route table defines routes, which determine where network traffic from the subnet would be routed
