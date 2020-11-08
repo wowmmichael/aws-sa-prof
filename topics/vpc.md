@@ -259,4 +259,5 @@
 - DNS resolve related
   - [DHCP option](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html)
   - [Route53 resolver](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html)
+  - [Use DNS with VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html)
 
