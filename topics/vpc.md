@@ -256,4 +256,7 @@
 
 - [Stroage Gateway Networking FAQ](https://aws.amazon.com/storagegateway/faqs/)
 - [EC2 and VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-networking.html)
+- DNS resolve related
+  - [DHCP option](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html)
+  - [Route53 resolver](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html)
 
