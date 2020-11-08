@@ -252,3 +252,7 @@
 - [jayendrapatil](https://jayendrapatil.com/aws-vpc-security-group-vs-nacls/)
 - [vpc-sg-nacl comparison](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html#VPC_Security_Comparison)
 
+## Related
+
+- [Stroage Gateway Networking FAQ](https://aws.amazon.com/storagegateway/faqs/)
+
