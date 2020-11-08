@@ -255,4 +255,5 @@
 ## Related
 
 - [Stroage Gateway Networking FAQ](https://aws.amazon.com/storagegateway/faqs/)
+- [EC2 and VPC](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-networking.html)
 
