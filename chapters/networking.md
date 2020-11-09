@@ -52,6 +52,70 @@
 - ephemeral ports
 
 
+# Topics
+
+
+## Route 53
+
+- route 53 is a global service
+
+## Cloudfront
+
+- distributed content delivery service for simple static asset caching up to 4k live and on-demand video streaming
+- the edge location concept
+- Amazon Certificate Manager and SNI
+
+### SSL and TLS
+- SSL is fore-runner of TLS
+- TLS v1.2 since 2008
+- should disable prior versions of SSL and TLS
+- SSL certificate
+    - wildcard certificate
+- custom SSL client support, either one of the following:
+    - only clients that support SNI (Sever Name Indication)
+    - all clients but with extra charge because CloudFront allocates dedicated IP addresses at each edge location to serve content
+ 
+# Elastic Load Balancer
+
+- options
+    - Application load balancer (Layer 7)       
+    - Network load balancer (Layer 4)
+    - Classic load balancer (Layer 4 or Layer 7)
+- load balancer is autoscaling, consuming IP addresses in subnet, require reserving enough IP addresses
+- feature comparison
+    - all support zonal failover, and cross-zone load balancing
+    - all support health-checks
+    - all have CloudWatch metrics
+    - all can terminate SSL connections
+    - resource-based IAM permissions
+    - ALB and NLB are VPC only; CLB supports VPC and EC2-Classic, but the later is being deprecated
+    - __protocols__: ALB - HTTPS, HTTP; NLB - TCP, UDP, TLS; CLS - TCP, SSL, HTTP, HTTPS
+    - only ALB  supports path or host-based routing
+    - both ALB and NLB support websockets
+    - both ALB and NLB support SNI
+    - all support sticky sessions
+    - NLB supports static IP / elastic IP; ALB requires AWS Global Accelerator to bind IP
+    - only ALB supports user authentication
+- routing
+    - NLB uses port number for routing; TCP connections are persisted for the duration of the connection
+    - ALB provides far richer options, including host-based routing, path-based-routing, HTTP header-based routing, query string based routing, source CIDR based routing, and etc.
+    
+    
+# Exam tips
+
+- AWS connection modes
+- components such as Virtual private gateway, Customer Gateway
+- architect redundant network for Direct Connect with VPN or secondary direct connect
+- multicast and broadcast are not supported in VPCs
+- stateless, stateful
+- routing
+- VPC peering
+- Internet gateways
+- Route 53
+
+    
+    
+
 # Notes
 
 - Default VPC has a default subnet in each AZ.
