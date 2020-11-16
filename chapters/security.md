@@ -89,4 +89,45 @@
     - no trust
     - no MFA
     - kebero based authentication
+    
+# Credential and Access Management
+- concepts
+  - IAM and components
+  - users, groups, roles, and policies
+  - resource-based policies vs. identity-based policies
+  - services -> actions -> resources in IAM policies
+- STS vs. Cognito
+- Fedaration token to STS token to access AWS resources
+- Token vending machine concept
+  - common way to issue temporary credentials for mobile app development
+  - anonymous TVM - provide access to AWS services only, does not store identity
+  - identity TVM - used for registration and login, and authorization
+  - recommended to use Cognito than TVM
+- AWS secrets manager
+  - store passwords, keys, SSH keys, PGP keys
+  - fine-grained access control provided by IAM
+  
+# Encryption
+- encryption at rest & encryption in transit: SSL/TLS for HTTPS, IPSec for VPN
+- Key management service (KMS)
+  - tightly integrated into AWS services
+  - audit use of keys via CloudTrail
+  - differs from secret manager as its purpose-build for encryption key management
+  - compliances schemes (PCI DSS Level 1, FIPS 140-2 Level 2)
+- CloudHSM
+  - dedicated hardware device, single tenanted
+  - must be within a VPC and can be access via VPC peering
+  - does not integrate natively with as many AWS services as KMS. requires custom application scripting
+  - offload SSL from web servers, issuing CA, enable TDE for Oracle databases
+  - classic version vs. current version
+    - current version: no up-front cost, clustered
+- CloudHSM vs. KMS
+  |    | CloudHSM | KMS |
+  |----|----------|-----|
+  |tenancy| single | multi |
+  | availability | customer-managed durability and availability | availability and durability provided by AWS |
+  | root of trust | customer-managed | AWS-managed |
+  | FIPS 140-2 | Level 3 | Level 2 mostly |
+  | 3rd party support | Broad 3rd Party Support | Broad AWS Service Support |
+  
   
