@@ -146,3 +146,20 @@
   - safeguard exposed resources: Route 53 (geo-based restriction), AWS WAF (web application firewall), AWS Shield
   - detect abnormaly: AWS GuardDuty, CloudWatch
   ![image](https://user-images.githubusercontent.com/60513695/99274448-4d61e000-2865-11eb-85be-0782d8e630c1.png)
+  
+# Intrusion prevention and detection
+- intrusion detection system & intrusion prevention system
+- log collection mechanism - security information and event management system (SIEM)
+- CloudWatch vs. CloudTrail
+  - CloudWatch
+    - log events across AWS services
+    - high-level monitoring and events
+    - log from multiple accounts. commonly use dedicated account for CloudTrail
+    - log stored indefinitely
+    - alarm history for 14 days
+  - CloudTrail
+    - log API activities across AWS services
+    - low-level and granular
+    - log from multiple accounts. commonly use dedicated account for CloudTrail
+    - log stored to S3 or CloudWatch indefinitely
+    - no native alarming, can use CloudWatch alarms
