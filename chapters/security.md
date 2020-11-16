@@ -129,5 +129,20 @@
   | root of trust | customer-managed | AWS-managed |
   | FIPS 140-2 | Level 3 | Level 2 mostly |
   | 3rd party support | Broad 3rd Party Support | Broad AWS Service Support |
+- AWS certificate manager
+  - managed service for provisioning, managing, and deploying public or private SSL/TLS certificates
+  - directly integrated into CloudFront, ELB, and API Gateway
+  - free public certificates to use; needless to register via a 3rd party authority
+  - supports wildcard domains
+  - managed certificate renewal
+  - support creating managed private certificate authority for internal and proprietary apps, services, or devices
   
   
+# Distributed Denial-of-service attack
+- Amplification/Reflection attacks
+- best practices to be resilient against DDoS attacks
+  - minimize attack surface: NACLs, SGs, VPC design
+  - scale to absorb attacks: autoscaling groups, AWS cloudfront, static web content via S3
+  - safeguard exposed resources: Route 53 (geo-based restriction), AWS WAF (web application firewall), AWS Shield
+  - detect abnormaly: AWS GuardDuty, CloudWatch
+  ![image](https://user-images.githubusercontent.com/60513695/99274448-4d61e000-2865-11eb-85be-0782d8e630c1.png)
