@@ -148,7 +148,8 @@
   ![image](https://user-images.githubusercontent.com/60513695/99274448-4d61e000-2865-11eb-85be-0782d8e630c1.png)
   
 # Intrusion prevention and detection
-- intrusion detection system & intrusion prevention system
+- Intrusion Detection System & Intrusion Prevention System
+  - IPS is able to take automatic actions such as backlisting offending IPs
 - log collection mechanism - security information and event management system (SIEM)
 - CloudWatch vs. CloudTrail
   - CloudWatch
