@@ -163,3 +163,37 @@
     - log from multiple accounts. commonly use dedicated account for CloudTrail
     - log stored to S3 or CloudWatch indefinitely
     - no native alarming, can use CloudWatch alarms
+    
+# AWS Service Catalog
+- features
+  - frameworks for creating pre-defined products and landscapes
+  - control user access
+  - use adopted IAM roles so users don't need underlying service access
+  - allow end users to be self-sufficient while upholding enterprise standards for deployments
+  - based on cloudformation
+  - admin can version and remove products without affecting running product versions
+- constraints
+  - launch constraint
+  - notification constraint
+  - template constraint
+- multi-account scenarios
+  - sub-accounts inherit the shared portfolio from master account
+  - sub-accounts need to create IAM roles and policies by themselves
+  - launch rules are inherited, which by default point to the resources in the master account. so it should be override by the sub-accounts.
+  
+
+# Pro Tips
+- Acknowledge concerns and be ready with a process (Cloud Adoption Framework)
+- Leverage assessments and checklists
+- Migrate to the cloud is often more secure due to increased transparency and visibility
+- Speak in terms of risk as a continuum rather than an absolute
+- Consider AWS Certified Security, or CISSP
+
+
+# References
+
+- [AWS Security Best Practices](https://d1.awsstatic.com/whitepapers/aws-security-best-practices.pdf)
+- [AWS Multi-account Security Strategies](https://d1.awsstatic.com/aws-answers/AWS_Multi_Account_Security_Strategy.pdf)
+- [AWS Best Practices for DDoS Resiliency](https://d1.awsstatic.com/whitepapers/Security/DDoS_White_Paper.pdf)
+- [Security Pillar](https://d1.awsstatic.com/whitepapers/architecture/AWS-Security-Pillar.pdf?ref=wellarchitected)
+  
