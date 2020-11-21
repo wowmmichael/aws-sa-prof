@@ -203,5 +203,5 @@
 # Tips
 - KMS does not store username and password; it is dedicated to encryption key management
   ![image](https://user-images.githubusercontent.com/60513695/99879129-aeaef800-2c45-11eb-8572-d12d03165598.png)
-- [AWS Organization](topics/aws-organization.md)
+- [AWS Organization](../topics/aws-organization.md)
   
