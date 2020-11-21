@@ -41,7 +41,7 @@
   - strong isolatin of recovery and auditing data
 - tools
   - AWS Organization
-  - Service control policies
+    - Service control policies
   - Tagging
   - Resource Groups
   - Consolidated Billing
@@ -144,7 +144,8 @@
   - minimize attack surface: NACLs, SGs, VPC design
   - scale to absorb attacks: autoscaling groups, AWS cloudfront, static web content via S3
   - safeguard exposed resources: Route 53 (geo-based restriction), AWS WAF (web application firewall), AWS Shield
-  - detect abnormaly: AWS GuardDuty, CloudWatch
+  - detect abnormaly: AWS GuardDuty, CloudWatch, CloudTrail
+    - GuardDuty and CloudTrail focus on the security of the AWS account
   ![image](https://user-images.githubusercontent.com/60513695/99274448-4d61e000-2865-11eb-85be-0782d8e630c1.png)
   
 # Intrusion prevention and detection
@@ -163,6 +164,7 @@
     - low-level and granular
     - log from multiple accounts. commonly use dedicated account for CloudTrail
     - log stored to S3 or CloudWatch indefinitely
+    - can collect log from multiple regions into a single S3 bucket for a single account
     - no native alarming, can use CloudWatch alarms
     
 # AWS Service Catalog
@@ -197,4 +199,9 @@
 - [AWS Multi-account Security Strategies](https://d1.awsstatic.com/aws-answers/AWS_Multi_Account_Security_Strategy.pdf)
 - [AWS Best Practices for DDoS Resiliency](https://d1.awsstatic.com/whitepapers/Security/DDoS_White_Paper.pdf)
 - [Security Pillar](https://d1.awsstatic.com/whitepapers/architecture/AWS-Security-Pillar.pdf?ref=wellarchitected)
+
+# Tips
+- KMS does not store username and password; it is dedicated to encryption key management
+  ![image](https://user-images.githubusercontent.com/60513695/99879129-aeaef800-2c45-11eb-8572-d12d03165598.png)
+-
   
