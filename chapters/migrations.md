@@ -22,6 +22,7 @@
 ## Cloud Adoption Framework
 
 - The Open Group Architectural Framework (TOGAF)
+- focus on the early stages of cloud adoption. significant inventions are not considered part of the CAF.
 
 ### Typical Cloud Adoption Phases
 
@@ -55,6 +56,8 @@
 
 - common first step as pilot for cloud migrations
 - ideally, integrations are loosely coupled
+- create an accurate inventory of all systems and services
+- verify current on-prem total ownership costs (TOC)
 - example
   - AWS Storage Gateway creating a bridge between on-prem and AWS
     - transparent
@@ -126,3 +129,6 @@
 - [Migrating Applications with RDS](https://d1.awsstatic.com/whitepapers/Migration/migrating-applications-to-aws.pdf)
 - [AWS Cloud Transformation Maturity Model](https://d1.awsstatic.com/whitepapers/AWS-Cloud-Transformation-Maturity-Model.pdf)
   
+# Quiz
+- ![image](https://user-images.githubusercontent.com/60513695/100544515-2f4aa580-3291-11eb-8ec9-4bac51ce3620.png)
+
