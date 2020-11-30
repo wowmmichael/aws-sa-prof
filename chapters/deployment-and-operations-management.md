@@ -116,6 +116,107 @@ _popular in exam_
     
 ## API Gateway
 
+- managed, high available service to front-end REST APIs
+- backed with custom code via Lambda, as a proxy for another AWS Service, or any other HTTP API on AWS or elsewhere
+- regional based, private or edge optimized
+- support API keys and usage plans
+- using CloudFront behind the scenes so custom domains and SNI are supported
+- can be published as products and mometized on AWS Marketplace
+
+## Management Tools
+
+- AWS Config
+  - allows user to assess, audit, and evaluate configurations of the AWS resources
+  - useful for configuration management as part of an ITIL program
+  - track configuration changes
+  - validation and violation detection
+  - e.g. is backup enabled for RDS? is CloudTrail enabled? are EBS encrypted?
+  
+- AWS OpsWorks
+  - managed instanc of Chef and Puppet
+  - offerings
+    - OpsWorks for Chef Automate
+    - OpsWorks for Puppet Enterprise
+    - OpsWorks Stacks
+      - compatible with Chef recipes
+      - supports EC2 instances and on-prem servers with an agent
+      - stacks can only be cloned within the __same region__
+  - OpsWorks is a global service, but stack can only control resources in the region where stack is created
+  
+- AWS System Manager
+_very likely to appear in exames_
+  - centralized console and toolset for system management tasks
+  - designed for managing a large fleet of systems
+  - SSM agent enables System Manager features and support many OSs
+  - SSM agent is installed by default on AWS provided base AMIs for Linux and Windows
+  - can manage on-prem systems
+  - services
+    - inventory
+      - collect OS, application and instance metadata
+    - state manager
+      - create states that represent a certain configuration is applied to instances
+    - logging
+      - CloudWatch Log agent and stream logs to CloudWatch from instances
+    - parameter store
+      - shared secure storage of config data
+    - insight dashboard
+      - account-level view
+    - resource groups
+      - group resource via tagging for organization
+    - maintenance windows
+      - define schedules for patch, update apps, run scripts, and more
+    - automation
+      - automating routine maintenance tasks and scripts
+    - run command
+      - run commands and scripts without SSH or RDP
+    - patch manager
+  - system manager documents (SSM documents)
+    - command document
+    - policy document
+    - automation document
+    
+# Enterprise Apps
+
+- Amazon Workspace and AppStream
+  - Workspace: fully managed desktop-as-service
+  - AppStream: application hosting
+  - use cases: remote or seasonal workers such as distributed call center.
+  - use cases: demo product using AppStream
+  
+- Amazon Connect and Amazon Chime
+  - Connect: managed cloud-basec contact center
+  - Chime: online meeting and video conferencing
+  
+- Amazon WorkDocs and Amazon WorkMail
+  - WorkDocs: online document storage and collaboration
+  - WorkMail: like Exchange
+  
+- Amazon WorkLink and Alexa for Business
+  - WorkLink: like VPN but simpler, usually mobile devices
+  - Alexa functionality and skills internally in the enterprise
+  
+# Machine Learning Landscape
+
+- ML frameworks and infrastructures
+- ML services - Amazon SageMaker
+- AI services - targeting developers without AI knowledge
+  - Amazon Comprehend
+  - Amazon Forecast
+  - Amazon Lex
+  - Amazon Personalize
+  - Amazon Polly (text-to-speech service)
+  - Amazon Rekognition
+  - Amazon Textract (OCR)
+  - Amazon Transcribe (speech-to-text service)
+  - Amazon Translate
+  
+
+# References
+
+- [Infrastructure as Code](https://d1.awsstatic.com/whitepapers/DevOps/infrastructure-as-code.pdf)
+- [Practicing CI CD on AWS](https://d1.awsstatic.com/whitepapers/DevOps/practicing-continuous-integration-continuous-delivery-on-AWS.pdf)
+- [Overview of Deployment Options on AWS](https://d1.awsstatic.com/whitepapers/overview-of-deployment-options-on-aws.pdf)
+
   
 
   
