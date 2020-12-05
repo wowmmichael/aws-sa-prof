@@ -143,5 +143,135 @@
   - using Volume Gateway Cached Mode to sync data to remote offices 
 
 
+# Amazon WorkDocs
+
+- secure, fully managed file collaboration service
+- integrate with AD for SSO
+- web, mobile, and native clients (no linux)
+- PIC ISO HIPAA compliance requirements
+
+# Amazon Database on EC2
+
+- run any database with full control
+- good option for IBM DB2 and SAP HANA
+- some third party tools that can be used to backup database to S3
+
+# Amazon RDS
+
+- managed database option for MySQL, Maria, PostgreSQL, SQL Server, Oracle and MySQL-compatible Aurora
+- best for structured, relational data store needs
+- drop-in replacement for existing on-prem instances of same databases
+- automated backups and patching in customer-defined maintenance windows
+- push-button scaling, replication, and redundancy
+- anti-patterns
+  - lots of large binary objects
+  - automated scalability
+  - name/value data structure
+  - data is not well structured or unpredictable
+  - other database platforms not supported by AWS
+  - complete control over database
+- Multi-AZ RDS (stand-by)
+  - sync replication
+- Read-replicas service other regional users
+  - non-transactional storage engine MyISAM does not support replication
+  - async replication
+- fail-over
+  - master fails -> standup is promoted to the master
+  - whole region fails -> read replica promoted to stand-alone (single-AZ) -> single-AZ reconfigured to multi-AZ
   
+  
+# Amzaon DynamoDB
+- managed, multi-AZ NoSQL with cross-region replication
+- defaults to eventual consistency but can request strongly consistent read via SDK
+- priced on throughput rather than compute
+- provision read and write capacity in anticipation of need
+- autoscale capacity
+  - send in synthetic load for scaling in
+  - on-demand capacity for flexible capacity at a small premium cost
+- ACID-support with DynamoDB transactions
+- Relational vs. NoSQL
+- design best practices
+  _frequently appear in the exame_
+  - replicas via secondary indexes
+    - e.g. premium customers and normal customers isolate W/R units
+    
+# Amazon Redshift
+
+- fully managed, clustered peta-byte scale data warehouse
+- postgreSQL compatible with JDBC and ODBC drivers
+- features parallel processing and columnar data stores which are optimized for complex queries
+- option to query directly from data files on S3 via Redshift Spectrum
+- Data Lake
+  - query raw data without extensive pre-processing
+  - lessen the time from data collection to data value
+  - identify correlations between disparate data sets
+  - data in S3 <- redshift spectrum <- analytics tools
+
+# Elasticache
+
+- fully managed implementations of Redis and memcached
+- push-button scalability for memory, writes and reads
+- in memory key/value store- not persistent in the traditional sense
+- billed by node-size and use time
+- memcached vs. redis
+  - memcached
+    - simple, straight-forward
+    - scale out/in as demand changes
+  - redis
+    - encryption
+    - HIPAA compliance
+    - clustering
+    - complex data types
+    - high-availability (replication)
+    - pub/sub capability
+    - geospatial indexing
+    - backup and restore
+
+
+
+# Amazon Neptune
+
+- fully-managed graph database
+
+
+# Amazon Athena
+- SQL engine overlaid on S3 based on Presto
+- query raw data objects as they sit in S3 bucket
+- use or convert data to parquet to gain performance jump
+
+# Amazon Quantum Ledger Database
+
+- based on blockchain concepts
+- provides immutable and transparent journal as a service
+- centralized design
+- append-only concept
+
+# Amazon Managed Blockchain
+
+- fully managed blockchain framework supporting Hyperledger Fabric and Ethereum
+- distributed consensus-based 
+- use the Amaon QLDB under-the-hood
+
+# Amazon Timestream Database
+
+# Amazon DocumentDB
+- with MongoDB compatibility
+- fully managed with multi-AZ HA, scalable, integrated with KMS, and backed up to S3
+- migrate from MongoDB easily
+
+# Amazon ElasticSearch
+- ELK stack
+  - Analytics: Kibana 
+  - Intake: Logstash, cloudwatch, firehose, IoT 
+  - Search and storage: ElasticSearch
+- overlap with __AWS Quicksight__?
+
+
+# References
+
+- [AWS Storage Services Overview](https://d1.awsstatic.com/whitepapers/Storage/AWS%20Storage%20Services%20Whitepaper-v9.pdf)
+- [SaaS Storage Strategies for multitenant](https://d1.awsstatic.com/whitepapers/Multi_Tenant_SaaS_Storage_Strategies.pdf)
+- [Performance at Scale with Amazon ElasticCache](https://d0.awsstatic.com/whitepapers/performance-at-scale-with-amazon-elasticache.pdf)
+
+
 
