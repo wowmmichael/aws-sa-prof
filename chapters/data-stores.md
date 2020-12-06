@@ -274,4 +274,8 @@
 - [Performance at Scale with Amazon ElasticCache](https://d0.awsstatic.com/whitepapers/performance-at-scale-with-amazon-elasticache.pdf)
 
 
+# Errors
+
+- ![image](https://user-images.githubusercontent.com/60513695/101271260-4e2ec780-37bc-11eb-9137-d565d1a5d0bb.png)
+- ![image](https://user-images.githubusercontent.com/60513695/101271296-92ba6300-37bc-11eb-82a9-ce396c8c42dd.png)
 
