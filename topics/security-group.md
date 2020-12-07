@@ -46,6 +46,15 @@
 - SG only supports filtering on destination ports (for both inbound and outbound), unlike other firewalls
 - updating the rules will automatically apply the changes to all instances associated
 
+
+# [Comparison between SG and NACL](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html#VPC_Security_Comparison)
+
+- SG applies at the instance level; NACL applies at the subnet level
+- SG supports allow rules only; NACL supports allow and deny rules
+- SG is stateful; NACL is stateless
+- SG evaluates all rules together; NACL process rules in order
+- SG applies to instance when launching the instance; NACL automatically applies to all instances in the subnet
+
 # [AWS Firewall Manager](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#aws-firewall-manager)
 
 - manages SGs across multiple accounts and resources centrally in AWS Organizations
