@@ -55,6 +55,25 @@
 - SG evaluates all rules together; NACL process rules in order
 - SG applies to instance when launching the instance; NACL automatically applies to all instances in the subnet
 
+# [Security groups for load balancers in a VPC](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-groups.html#elb-vpc-security-groups)
+- public load balancers
+  - inbound
+    | source | protocol | port range |
+    |--------|----------|------------|
+    | 0.0.0.0/0 | TCP | listener     |
+  - outbound
+    | destination | protocol | port range |
+    |-------------|----------|------------|
+    | instance sg | TCP      | instance listener |
+    | instance sg | TCP      | health check |
+- instances in private subnet
+  - inbound only
+    | souce | protocol | port range |
+    |-------|----------|------------|
+    | load balancer sg | TCP | instance listener |
+    | load balancer sg | TCP | health check |
+
+
 # [AWS Firewall Manager](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#aws-firewall-manager)
 
 - manages SGs across multiple accounts and resources centrally in AWS Organizations
