@@ -53,9 +53,11 @@
     9. application can access AWS resources with the role, and use the user ID to customize operations for the user
       ![image](https://user-images.githubusercontent.com/60513695/101486978-6eb37900-3998-11eb-80ea-5962744391c9.png)
   - flow for SSO
+    - _AssumeRoleWithSAML_
     ![image](https://user-images.githubusercontent.com/60513695/101487056-8db20b00-3998-11eb-9bdc-19e9cebdbefb.png)
 - custom identity broker federation
   - flow
+    - _GetFederationToken_ or _AssumeRole_
     ![image](https://user-images.githubusercontent.com/60513695/101487315-f4cfbf80-3998-11eb-9845-cb572459ba49.png)
 
     
