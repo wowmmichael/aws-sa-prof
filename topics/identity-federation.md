@@ -27,6 +27,11 @@
   - Cognito helps synchronization user data across devices and providers
     ![image](https://user-images.githubusercontent.com/60513695/101481033-7c183580-398f-11eb-9759-4df9dc84bb56.png)
     
+- (historical) [token vending machine](https://aws.amazon.com/articles/authenticating-users-of-aws-mobile-applications-with-a-token-vending-machine/)
+  - TVM uses STS to provide temporary credentials
+  - identity TVM & anonymous TVM
+
+    
 - SAML 2.0 based federation
   - SAML 2.0 based federation enables federated single sign-on (SSO), so users can log into AWS Console or invoke AWS APIs without an IAM user
   - useful in organizations that have integrated identity systems such as Windows AD or OpenLDAP
