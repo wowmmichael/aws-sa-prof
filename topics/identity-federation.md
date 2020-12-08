@@ -1,4 +1,4 @@
-# Identity providers and federation
+# [Identity providers and federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers.html)
 
 - problem to address
   - grant external user identity permissions without having to create user in AWS account
