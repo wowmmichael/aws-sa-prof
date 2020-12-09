@@ -1,5 +1,5 @@
-_[alb, nlb, glb, clb](https://docs.aws.amazon.com/elasticloadbalancing/index.html)_
--[jayendrapatil aws_auto_scaling](https://jayendrapatil.com/aws-auto-scaling/)_
+- _[alb, nlb, glb, clb](https://docs.aws.amazon.com/elasticloadbalancing/index.html)_
+- _[jayendrapatil aws_auto_scaling](https://jayendrapatil.com/aws-auto-scaling/)_
 
 # Auto scaling & Elastic load balancer
 
