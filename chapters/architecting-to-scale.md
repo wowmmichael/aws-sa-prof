@@ -1,51 +1,49 @@
-
-
 # Auto-scaling
 
 - types
- - Amazon EC2 auto scaling
-  - setup scaling groups for EC2 instances; health checks to remove unhealthy instances
- - Application auto scaling
-  - API used to control scaling for other resources like Dynamo, ECS, EMR
- - AWS auto scaling
-  - centrailized way to manage scalability for whole stacks; predictive scaling feature; console to provide holistic view
+  - Amazon EC2 auto scaling
+    - setup scaling groups for EC2 instances; health checks to remove unhealthy instances
+  - Application auto scaling
+    - API used to control scaling for other resources like Dynamo, ECS, EMR
+  - AWS auto scaling
+    - centrailized way to manage scalability for whole stacks; predictive scaling feature; console to provide holistic view
 - EC2 auto-scaling groups
- - horizontal scaling (scale-out) EC2 instances
- - triggered by event or scaling action
- - availability, cost, and system metrics can all factor into scaling
- - scaling options
-  - maintain - keep a specific or minimum number of instances running
-  - manual - use maximum, minimum, or specific number of instances
-  - schedule - increase/decrease instances based on schedule
-  - dynamic - scale based on real-time metrics of the systems
- - auto-scaling group in launch configuration
-  - specify VPC and subnets for scaled instances
-  - define health-check grace period
-  - attach to an ELB
- - dynamic auto-scaling policies
-  - types
-   - target tracking policy
-   - simple scaling policy
-   - step scaling policy
-  - cooldown period
-   - the amount of time for the new instances to come up to speed and absorb traffic
-   - while health-check grace period is the time for the instance to start up
-   - automatically applied to dynamic scaling, optional to manual scaling, but not supported for scheduled scaling
-   - default to 300 seconds. can be overriden via scaling-specific cooldown, e.g. using lower cooldown period for scaling-down
-  - scaling based on external metrics 
-    ![image](https://user-images.githubusercontent.com/60513695/101572979-27b69980-3a13-11eb-899c-1574deaa6d60.png)
+  - horizontal scaling (scale-out) EC2 instances
+  - triggered by event or scaling action
+  - availability, cost, and system metrics can all factor into scaling
+  - scaling options
+    - maintain - keep a specific or minimum number of instances running
+    - manual - use maximum, minimum, or specific number of instances
+    - schedule - increase/decrease instances based on schedule
+    - dynamic - scale based on real-time metrics of the systems
+  - auto-scaling group in launch configuration
+    - specify VPC and subnets for scaled instances
+    - define health-check grace period
+    - attach to an ELB
+  - dynamic auto-scaling policies
+    - types
+      - target tracking policy
+      - simple scaling policy
+      - step scaling policy
+    - cooldown period
+      - the amount of time for the new instances to come up to speed and absorb traffic
+      - while health-check grace period is the time for the instance to start up
+      - automatically applied to dynamic scaling, optional to manual scaling, but not supported for scheduled scaling
+      - default to 300 seconds. can be overriden via scaling-specific cooldown, e.g. using lower cooldown period for scaling-down
+  - scaling based on external metrics    
+    ![image](https://user-images.githubusercontent.com/60513695/101572979-27b69980-3a13-11eb-899c-1574deaa6d60.png)    
 - application auto-scaling
- - types
-  - target tracking policy
-  - step scaling policy
-  - scheduled scaling policy
+  - types
+    - target tracking policy
+    - step scaling policy
+    - scheduled scaling policy
 - AWS Auto Scaling
- ![image](https://user-images.githubusercontent.com/60513695/101574875-cba04500-3a13-11eb-8751-3ca89ccd7347.png)
- - manage all the resources in a holistic view
- - scaling strategies phrased with business terms, e.g. "Optimize for availability" and "Balance availability and cost", or detailed "Custom" strategy
- - predictive scaling
+  - ![image](https://user-images.githubusercontent.com/60513695/101574875-cba04500-3a13-11eb-8751-3ca89ccd7347.png)   
+  - manage all the resources in a holistic view
+  - scaling strategies phrased with business terms, e.g. "Optimize for availability" and "Balance availability and cost", or detailed "Custom" strategy
+  - predictive scaling
+ 
 
-   
    
 
 # EC2 autoscaling
