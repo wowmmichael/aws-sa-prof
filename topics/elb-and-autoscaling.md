@@ -126,6 +126,12 @@
   - AS by default decrements the desired capacity for the group so no new instance will be launched
   
   
+# SSL termination
+[ref](https://acloud.guru/forums/aws-well-architected-framework/discussion/-M--C1hiEC5dBDBhE0x9/Application%20load%20balancer%20-%20Connection%20between%20ALB%20&%20EC2)
+The ALB will terminate HTTPS connections. When you create target groups ( which is what you use to organize the traffic going from the ALB to your ec2 instances) you can choose either HTTP or HTTPS protocol. Use HTTP to reduce the load on your ec2 instances and use HTTPS if you want the data to be encripted in transit all the way to your instances for compliance reasons. Note that the traffic is not encrypted fully end to end as the ALB itself will decrypt and then encrypt the data of each packet.
+
+Use a NLB if for some reason you need complete end to end encryption or if you need really high throuput that the NLB supports. Use an ALB if you want more flexibility to support different forwarding rules based on the url or path of the requests or you want to terminate the TLS connection at the LB.
+  
 
   
     
