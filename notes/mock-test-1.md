@@ -14,3 +14,4 @@
 - iSCSI is SAN compatible, so are the Storage Gateways
 - SMB is similar to NFS, but is natively supported by Windows. current support for SMB includes Storage Gateway File gateway, and [Amazon FSx for Windows File Server](https://aws.amazon.com/fsx/windows/faqs/). For migration, should use AWS DataSync, or Windows's RoboCopy
   - DataSync can copy data in NFS, SMB, self-managed object storage, AWS Snowcone, S3 bucket, EFS, and Amazon FSx for Windows
+- Lift-and-shift hints: install DB2 on an EC2 instance, replace IBM MQ with Amazon MQ, VM import/export to EC2
