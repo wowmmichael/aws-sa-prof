@@ -2,19 +2,15 @@
 
 - [Application & Database migration service](https://jayendrapatil.com/aws-cloud-migration-services/)
   - AWS EC2 VM Import/Export
-    - import vm image to EC2 and export back to on-prem. env
-    - leverage existing investment in virtual machines
-  - AWS Server Migration Service (SMS)
-    - agentless service for migrating on-prem workload to AWS
-    - incremental replications of live server volumes
-    - supports VMWare vSphere, Windows Hyper-V, Azure VM
-    - support all kinds of OS
-    - save server volume as new AMI
-    - used for _re-host_    
+  - AWS Server Migration Service (SMS) 
   - AWS Database Migration Service (DMS)
-    - source database remains fully operational
-    - supports homogeneous migration, e.g. Oracle to Oracle, and heterogeneous migration, e.g. Oracle to Aurora
-    - supports both one-time data migration into RDS and EC2-based database as well as continuous data replication
-    - supports continuous replication of the data into Amazon Redshift and Amazon S3
-    - provides free AWS Schema Conversion Tool (SCT) to convert Oracle/SQL Server tables into Aurora/PostgreSQL tables
-  
+- Oracle RAC (real application cluster) is not supported by AWS RDS
+- to support client-side certificates, ELB shouldn't terminate the SSL, so its listener protocol must be TCP
+- SNS invokes Lambda asynchronously, SQS invokes Lambda synchronously via event source mappings
+- SNS has retries, and DLQ per subscription
+- SNS supports HTTPS subscribers, but requires trusted CA-signed certificates
+- Fargate abstracts away the resource provision, so we cannot specify spot instances
+- AWS batch supports a list of jobs via array job and can specify their dependencies; AWS batch can also specify the computing resources such as a fleet of spot instances
+- iSCSI is SAN compatible, so are the Storage Gateways
+- SMB is similar to NFS, but is natively supported by Windows. current support for SMB includes Storage Gateway File gateway, and [Amazon FSx for Windows File Server](https://aws.amazon.com/fsx/windows/faqs/). For migration, should use AWS DataSync, or Windows's RoboCopy
+  - DataSync can copy data in NFS, SMB, self-managed object storage, AWS Snowcone, S3 bucket, EFS, and Amazon FSx for Windows
