@@ -52,3 +52,4 @@
 3. AWS storage gateway for continuous data transfer from on-premise system; AWS Snowball for batch transfer.
 4. Guarantees of compute HA is through reserved instances.    
 5. EBS is about 10x more expensive than S3, so be careful of the choices that use it.
+6. [DR strategies](https://www.cbtnuggets.com/blog/certifications/cloud/aws-disaster-recovery-pilot-light-warm-standby-multi-site)
