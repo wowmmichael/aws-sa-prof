@@ -82,7 +82,11 @@
 - AWS Organization Service Control Policies
   - Deny List Mode vs. Allow List Mode (usually a bad idea)
   - SCP doesn't grant permissions. need to do that in IAM at the account level
-  -  
+  - (unrelated) trusted service & service linked role
+- [IAM policy vs S3 Bucket Policy vs S3 ACL](https://aws.amazon.com/blogs/security/iam-policies-and-bucket-policies-and-acls-oh-my-controlling-access-to-s3-resources); bucket policy is used to allow public access; [offical recommendation on scenarios](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-alternatives-guidelines.html)
+- [S3 object ownership](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html#ensure-object-ownership)
+- Direct connect gateway is a global resource
+- __AWS Resource Access Manager__ to share TGW, subnets, license, route53 resolvers rules with many AWS account or within AWS Organization
 
 
   
