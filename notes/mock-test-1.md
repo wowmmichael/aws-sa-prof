@@ -27,8 +27,6 @@
 - Lambda processing limit is 15 minutes
 - SQS message size limit is 2GB, Kinesis message size limit is 1MB
 - instance store-backed AMI vs EBS-backed AMI
-- [Lambda@Edge and content-based dynamic origin selection for cloudfront](https://aws.amazon.com/about-aws/whats-new/2017/11/lambda-at-edge-now-supports-content-based-dynamic-origin-selection-network-calls-from-viewer-events-and-advanced-response-generation/)
-- Dynao
 - [Lambda@Edge and content-based dynamic origin selection for cloudfront](https://aws.amazon.com/about-aws/whats-new/2017/11/lambda-at-edge-now-supports-content-based-dynamic-origin-selection-network-calls-from-viewer-events-and-advanced-response-generation)
 - DynamoDB autoscaling with CloudWatch is effective in [reducing cost](https://aws.amazon.com/blogs/database/amazon-dynamodb-auto-scaling-performance-and-cost-optimization-at-any-scale/#:~:text=To%20configure%20auto%20scaling%20in,alarms%20that%20track%20consumed%20capacity), but to support real spiky load with no delay at all, __on-demand capacity mode__ is needed
 - VMWare Cloud on AWS sometimes provide the easiest and highly available migration solution, especially the on-prem is already on VMWare ESXi and using Oracle RAC
